@@ -85,4 +85,27 @@ void imprimeCatalogo(Hash *h){
     }
 }
 
+void lerBancoDeDados(Hash *h, FILE *fh){
+    char caractere;
+    char palavra[50];
+    int indice = 0;
+    Livro *auxiliar = (Livro*)malloc(sizeof(Livro));
+    while((caractere = fgetc(fh)) != EOF){
+        if(caractere == ',' || caractere == '\n'){
+            palavra[indice] = '\0';
+            if(caractere == ',')
+                strcpy(auxiliar->nome, palavra);
+            else{
+                strcpy(auxiliar->autor, palavra);
+                insereLivro(h,auxiliar,fh);
+            }
+            indice = 0;
+        } else {
+            palavra[indice] = caractere;
+            indice++;
+        }
+    }
+    free(auxiliar);
+}
+
 #endif

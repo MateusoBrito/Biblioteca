@@ -12,8 +12,7 @@ int main(){
     if(fh == NULL)
         printf("Erro ao abrir o arquivo.\n");
 
-    
-
+    lerBancoDeDados(biblioteca,fh);
 
     printf("========== A L E X A N D R I A ==========\n");
     printf("1. Adicionar livro\n");

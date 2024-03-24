@@ -192,6 +192,7 @@ void AuxiliarFilhoDireita(NO **raiz){
 
 //=====================================================================
 int insereRec(NO **raiz, Livro *livro, FILE *arquivo){
+    printf("oi\n");
     if (livro->nome[strlen(livro->nome) - 1] == '\n')
         livro->nome[strlen(livro->nome) - 1] = '\0';
     fprintf(arquivo, "%s", livro->nome);
@@ -371,7 +372,7 @@ int removeElem(AVL* raiz, Livro *livro){
 void emOrdem(NO *raiz, int nivel){
     if(raiz != NULL){
         emOrdem(raiz->esq, nivel+1);
-        printf("%s%sQuantidade:%d\n ", raiz->livro.nome, raiz->livro.autor, raiz->livro.quantidade);
+        printf("%s,%s,Quantidade:%d\n ", raiz->livro.nome, raiz->livro.autor, raiz->livro.quantidade);
         emOrdem(raiz->dir, nivel+1);
     }
 }
