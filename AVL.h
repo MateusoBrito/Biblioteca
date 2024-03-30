@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "Base.h"
 #define MAIOR(a, b) ((a > b) ? (a) : (b))
 
 typedef struct Livro{
@@ -192,12 +193,7 @@ void AuxiliarFilhoDireita(NO **raiz){
 
 //=====================================================================
 int insereRec(NO **raiz, Livro *livro, FILE *arquivo){
-    printf("oi\n");
-    if (livro->nome[strlen(livro->nome) - 1] == '\n')
-        livro->nome[strlen(livro->nome) - 1] = '\0';
-    fprintf(arquivo, "%s", livro->nome);
-    fprintf(arquivo,"%s",",");
-    fprintf(arquivo, "%s", livro->autor);
+    //inserirBancosdeDados(livro, arquivo);
 
     int ok; //controle para as chamadas recursivas
     if(*raiz == NULL){
