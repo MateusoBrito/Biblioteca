@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Base.h"
+#include "Functions.h"
 #define MAIOR(a, b) ((a > b) ? (a) : (b))
 
 typedef struct Livro{
@@ -193,7 +193,6 @@ void AuxiliarFilhoDireita(NO **raiz){
 
 //=====================================================================
 int insereRec(NO **raiz, Livro *livro, FILE *arquivo){
-    //inserirBancosdeDados(livro, arquivo);
 
     int ok; //controle para as chamadas recursivas
     if(*raiz == NULL){

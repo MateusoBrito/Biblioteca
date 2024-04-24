@@ -42,6 +42,7 @@ int main(){
                 fgets(auxiliar->autor,40,stdin);
                 
                 insereLivro(biblioteca, auxiliar, fh);
+                inserirBancosdeDados(auxiliar, fh);
                 break;
 
             case 2:
