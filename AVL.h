@@ -192,7 +192,7 @@ void AuxiliarFilhoDireita(NO **raiz){
 }
 
 //=====================================================================
-int insereRec(NO **raiz, Livro *livro, FILE *arquivo){
+int insereRec(NO **raiz, Livro *livro){
 
     int ok; //controle para as chamadas recursivas
     if(*raiz == NULL){
@@ -212,7 +212,7 @@ int insereRec(NO **raiz, Livro *livro, FILE *arquivo){
             ok = 0;
         }
         if(strcmp((*raiz)->livro.nome, livro->nome)>0){
-            ok = insereRec(&(*raiz)->esq, livro, arquivo);
+            ok = insereRec(&(*raiz)->esq, livro);
             if(ok){
                 switch ((*raiz)->fb){
                     case -1:
@@ -230,7 +230,7 @@ int insereRec(NO **raiz, Livro *livro, FILE *arquivo){
                 }
             } 
         } else if(strcmp((*raiz)->livro.nome, livro->nome)<0){
-            ok = insereRec(&(*raiz)->dir, livro, arquivo);
+            ok = insereRec(&(*raiz)->dir, livro);
             if(ok){
                 switch ((*raiz)->fb){
                     case -1:
@@ -252,9 +252,9 @@ int insereRec(NO **raiz, Livro *livro, FILE *arquivo){
     return ok;
 }
 
-int insereElem(AVL *raiz, Livro *livro, FILE *arquivo){
+int insereElem(AVL *raiz, Livro *livro){
     if(raiz==NULL) return 0;
-    return insereRec(raiz, livro, arquivo);
+    return insereRec(raiz, livro);
 }
 
 int pesquisaRec(NO **raiz, Livro *livro){
@@ -367,7 +367,7 @@ int removeElem(AVL* raiz, Livro *livro){
 void emOrdem(NO *raiz, int nivel){
     if(raiz != NULL){
         emOrdem(raiz->esq, nivel+1);
-        printf("%s,%s,Quantidade:%d\n ", raiz->livro.nome, raiz->livro.autor, raiz->livro.quantidade);
+        printf("%s,%s\nQuantidade:%d ", raiz->livro.nome, raiz->livro.autor, raiz->livro.quantidade);
         emOrdem(raiz->dir, nivel+1);
     }
 }
