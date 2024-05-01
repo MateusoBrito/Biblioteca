@@ -1,11 +1,14 @@
 #include "Functions.h"
 #include "Front.h"
+#include "BibliotecaLoader.h"
 #include <stdio.h>
 
 
 int main(){
     Hash *biblioteca;
     biblioteca = criaHash(26);
+
+    lerArquivoLivros("bancodeDados.txt", biblioteca);
 
     menu();
     

@@ -3,6 +3,7 @@
         "stdio.h": "c",
         "avl.h": "c",
         "string.h": "c",
-        "functions.h": "c"
+        "functions.h": "c",
+        "bibliotecaloader.h": "c"
     }
 }

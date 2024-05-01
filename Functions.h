@@ -1,5 +1,5 @@
-#ifndef GENEROS_H
-#define GENEROS_H
+#ifndef FUNCTIONS_H
+#define FUNCTIONS_H
 
 #include "AVL.h"
 

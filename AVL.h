@@ -193,7 +193,6 @@ void AuxiliarFilhoDireita(NO **raiz){
 
 //=====================================================================
 int insereRec(NO **raiz, Livro *livro){
-
     int ok; //controle para as chamadas recursivas
     if(*raiz == NULL){
         NO *novo = alocarNO();
@@ -367,7 +366,8 @@ int removeElem(AVL* raiz, Livro *livro){
 void emOrdem(NO *raiz, int nivel){
     if(raiz != NULL){
         emOrdem(raiz->esq, nivel+1);
-        printf("%s,%s\nQuantidade:%d ", raiz->livro.nome, raiz->livro.autor, raiz->livro.quantidade);
+        printf("%s,%s\nQuantidade:%d\n", raiz->livro.nome, raiz->livro.autor, raiz->livro.quantidade);
+        printf("-----------------------------------------\n");
         emOrdem(raiz->dir, nivel+1);
     }
 }
@@ -392,7 +392,8 @@ void imprime(AVL *raiz){
     if(raiz == NULL) return;
     if(estaVazia(raiz)) return; 
     emOrdem(*raiz, 0);
-    printf("\n");
+    //printf("\n");
+    return;
 }
 
 #endif
