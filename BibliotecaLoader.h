@@ -35,6 +35,22 @@ void lerArquivoLivros(const char *nomeArquivo, Hash *biblioteca) {
     }
 
     fclose(arquivo);
+    return;
+}
+
+void inserirLivroArquivo(const char *nomeArquivo, Livro *livro){
+    FILE *arquivo = fopen(nomeArquivo,"a");
+    if(arquivo == NULL){
+        printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
+        return;
+    }
+
+    fprintf(arquivo,"%s",livro->nome);
+    fprintf(arquivo,",");
+    fprintf(arquivo,"%s\n",livro->autor);
+
+    fclose(arquivo);
+    return;
 }
 
 #endif

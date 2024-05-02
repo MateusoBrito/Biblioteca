@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "Functions.h"
+#include "BibliotecaLoader.h"
 
 void menu(){
     printf("========== A L E X A N D R I A ==========\n");
@@ -27,6 +28,7 @@ void adicionaLivro_menu(Hash *biblioteca, Livro *auxiliar){
     auxiliar->autor[strcspn(auxiliar->autor, "\n")] = '\0';
                 
     insereLivro(biblioteca, auxiliar);
+    inserirLivroArquivo("BancodeDados.txt",auxiliar);
     return;
 }
 
