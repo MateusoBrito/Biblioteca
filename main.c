@@ -38,7 +38,8 @@ int main(){
                 imprimeCatalogo(biblioteca);
                 break;
             case 6:
-                break; 
+                salvarMudancas("bancodeDados.txt", biblioteca);
+                break;
             default:
                 printf("Opcao nao existe!\n");
                 break;

@@ -1,19 +1,17 @@
-o senhor dos sneis, J.R.R. Tolkien
-harry potter e a pedra filosofal, J.K. Rowling
-dom quixote, Miguel de Cervantes
-cem anos de solidão, Gabriel García Márquez
-orgulho e preconceito, Jane Austen
-a metamorfose, Franz Kafka
-o pequeno príncipe, Antoine de Saint-Exupéry
-a revolução dos bichos, George Orwell
-crime e castigo, Fyodor Dostoevsky
-o lobo do mar, Jack London
-as aventuras de tom sawyer, Mark Twain
-alice no pais das maravilhas, Lewis Carroll
-dracula, Bram Stoker
-o morro dos ventos uivantes, Emily Bronte
-a ilha do tesouro, Robert Louis Stevenson
-robinson crusoé, Daniel Defoe
-a volta ao mundo em oitenta dias, Jules Verne
-a arte da guerra, Sun Tzu
-a divina comédia, Dante Alighieriasdasdas,asdasdsa
+a arte da guerra,Sun Tzu
+a arte da guerra,Sun Tzu
+a divina comédia,Dante Alighieri
+a metamorfose,Franz Kafka
+a revolução dos bichos,George Orwell
+a volta ao mundo em oitenta dias,Jules Verne
+alice no pais das maravilhas,Lewis Carroll
+as aventuras de tom sawyer,Mark Twain
+crime e castigo,Fyodor Dostoevsky
+dom quixote,Miguel de Cervantes
+dracula,Bram Stoker
+harry potter e a pedra filosofal,J.K. Rowling
+o lobo do mar,Jack London
+o morro dos ventos uivantes,Emily Bronte
+o senhor dos sneis,J.R.R. Tolkien
+orgulho e preconceito,Jane Austen
+robinson crusoé,Daniel Defoe

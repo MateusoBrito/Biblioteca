@@ -38,16 +38,37 @@ void lerArquivoLivros(const char *nomeArquivo, Hash *biblioteca) {
     return;
 }
 
-void inserirLivroArquivo(const char *nomeArquivo, Livro *livro){
-    FILE *arquivo = fopen(nomeArquivo,"a");
+void inserirLivroArquivo(NO *raiz, int nivel, FILE *arquivo){
+    if(raiz != NULL){
+        inserirLivroArquivo(raiz->esq, nivel+1, arquivo);
+        for(int i=0; i<raiz->livro.quantidade;i++){
+            fprintf(arquivo,"%s",raiz->livro.nome);
+            fprintf(arquivo,",");
+            fprintf(arquivo,"%s\n",raiz->livro.autor);
+        }
+        inserirLivroArquivo(raiz->dir, nivel+1, arquivo);
+    }
+}
+
+void inserirLetraArquivo(AVL *raiz, FILE *arquivo){
+    if(raiz == NULL) return;
+    if(estaVazia(raiz)) return; 
+    inserirLivroArquivo(*raiz, 0, arquivo);
+    return;
+}
+
+
+void salvarMudancas(const char *nomeArquivo, Hash *biblioteca){
+    FILE *arquivo = fopen(nomeArquivo,"w");
     if(arquivo == NULL){
         printf("Erro ao abrir o arquivo %s.\n", nomeArquivo);
         return;
     }
 
-    fprintf(arquivo,"%s",livro->nome);
-    fprintf(arquivo,",");
-    fprintf(arquivo,"%s\n",livro->autor);
+    for(int i=0;i<biblioteca->tam;i++){
+        if(biblioteca->tabela[i] != NULL)
+            inserirLetraArquivo(biblioteca->tabela[i], arquivo);
+    }
 
     fclose(arquivo);
     return;

@@ -28,7 +28,6 @@ void adicionaLivro_menu(Hash *biblioteca, Livro *auxiliar){
     auxiliar->autor[strcspn(auxiliar->autor, "\n")] = '\0';
                 
     insereLivro(biblioteca, auxiliar);
-    inserirLivroArquivo("BancodeDados.txt",auxiliar);
     return;
 }
 

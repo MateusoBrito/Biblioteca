@@ -392,7 +392,6 @@ void imprime(AVL *raiz){
     if(raiz == NULL) return;
     if(estaVazia(raiz)) return; 
     emOrdem(*raiz, 0);
-    //printf("\n");
     return;
 }
 
