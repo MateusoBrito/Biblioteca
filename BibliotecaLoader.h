@@ -4,6 +4,11 @@
 #include <stdio.h>
 #include "Functions.h"
 
+void escreveLivro(char *nome, char *autor, FILE *arquivo){
+    fprintf(arquivo,"%s",nome);
+    fprintf(arquivo,",");
+    fprintf(arquivo,"%s\n",autor);
+}
 
 void lerArquivoLivros(const char *nomeArquivo, Hash *biblioteca) {
     FILE *arquivo = fopen(nomeArquivo, "r");
@@ -41,16 +46,13 @@ void lerArquivoLivros(const char *nomeArquivo, Hash *biblioteca) {
 void inserirLivroArquivo(NO *raiz, int nivel, FILE *arquivo){
     if(raiz != NULL){
         inserirLivroArquivo(raiz->esq, nivel+1, arquivo);
-        for(int i=0; i<raiz->livro.quantidade;i++){
-            fprintf(arquivo,"%s",raiz->livro.nome);
-            fprintf(arquivo,",");
-            fprintf(arquivo,"%s\n",raiz->livro.autor);
-        }
+        for(int i=0; i<raiz->livro.quantidade;i++)
+            escreveLivro(raiz->livro.nome, raiz->livro.autor, arquivo);
         inserirLivroArquivo(raiz->dir, nivel+1, arquivo);
     }
 }
 
-void inserirLetraArquivo(AVL *raiz, FILE *arquivo){
+void inserirEstanteArquivo(AVL *raiz, FILE *arquivo){
     if(raiz == NULL) return;
     if(estaVazia(raiz)) return; 
     inserirLivroArquivo(*raiz, 0, arquivo);
@@ -67,7 +69,7 @@ void salvarMudancas(const char *nomeArquivo, Hash *biblioteca){
 
     for(int i=0;i<biblioteca->tam;i++){
         if(biblioteca->tabela[i] != NULL)
-            inserirLetraArquivo(biblioteca->tabela[i], arquivo);
+            inserirEstanteArquivo(biblioteca->tabela[i], arquivo);
     }
 
     fclose(arquivo);

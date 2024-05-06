@@ -4,15 +4,18 @@
 #include <stdio.h>
 #include "Functions.h"
 #include "BibliotecaLoader.h"
+#define BANCODEDADOS "bancodeDados.txt"
+#define ALUGADOS "Alugados.txt"
 
 void menu(){
     printf("========== A L E X A N D R I A ==========\n");
     printf("1. Adicionar livro\n");
     printf("2. Buscar livro\n");
     printf("3. Alugar livro\n");
-    printf("4. Remover livro\n");
-    printf("5. Imprimir catalogo\n");
-    printf("6. Sair\n");
+    printf("4. Devolver livro\n");
+    printf("5. Remover livro\n");
+    printf("6. Imprimir catalogo\n");
+    printf("7. Sair\n");
     printf("=========================================\n");
     return;
 }
@@ -47,6 +50,14 @@ void buscaLivro_menu(Hash *biblioteca, Livro *auxiliar){
 }
 
 void alugarLivro_menu(Hash *biblioteca, Livro *auxiliar){
+
+    FILE *arquivo = fopen(ALUGADOS, "r+");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo %s.\n", ALUGADOS);
+        return;
+    }
+
+
     fflush(stdin);  
     printf("Qual livro deseja alugar?\n");
     printf("Titulo:");
@@ -55,12 +66,40 @@ void alugarLivro_menu(Hash *biblioteca, Livro *auxiliar){
     auxiliar->nome[strcspn(auxiliar->nome, "\n")] = '\0';
 
     if(buscaLivro(biblioteca, auxiliar) == 1){
-        if(auxiliar->quantidade  != 0)
+        if(auxiliar->quantidade  != 0){
             alugarLivro(biblioteca, auxiliar);
-        else
+            escreveLivro(auxiliar->nome, auxiliar->autor, arquivo);
+        } else
             printf("O livro ja esta alugado!\n");
     } else
         printf("Nao temos o livro!\n");
+
+    fclose(arquivo);
+
+    return;
+}
+
+void devolverLivro_menu(Hash *biblioteca, Livro *auxiliar){
+
+    FILE *arquivo = fopen(ALUGADOS, "r+");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo %s.\n", ALUGADOS);
+        return;
+    }
+
+    fflush(stdin);
+    printf("Qual livro deseja devolver?\n");
+    printf("Titulo:");
+    fgets(auxiliar->nome,40,stdin);
+    auxiliar->nome[strcspn(auxiliar->nome, "\n")] = '\0';
+    printf("Autor:");
+    fgets(auxiliar->autor,40,stdin);
+    auxiliar->autor[strcspn(auxiliar->autor, "\n")] = '\0';
+    
+    insereLivro(biblioteca, auxiliar);
+
+    fclose(arquivo);
+
     return;
 }
 

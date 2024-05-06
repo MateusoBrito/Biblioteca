@@ -8,7 +8,9 @@ int main(){
     Hash *biblioteca;
     biblioteca = criaHash(26);
 
-    lerArquivoLivros("bancodeDados.txt", biblioteca);
+    // devolver livro
+
+    lerArquivoLivros(BANCODEDADOS, biblioteca);
 
     menu();
     
@@ -32,13 +34,16 @@ int main(){
                 alugarLivro_menu(biblioteca,auxiliar);
                 break;
             case 4:
-                removerLivro_menu(biblioteca,auxiliar);
+                devolverLivro_menu(biblioteca, auxiliar);
                 break;
             case 5:
-                imprimeCatalogo(biblioteca);
+                removerLivro_menu(biblioteca,auxiliar);
                 break;
             case 6:
-                salvarMudancas("bancodeDados.txt", biblioteca);
+                imprimeCatalogo(biblioteca);
+                break;
+            case 7:
+                salvarMudancas(BANCODEDADOS, biblioteca);
                 break;
             default:
                 printf("Opcao nao existe!\n");
